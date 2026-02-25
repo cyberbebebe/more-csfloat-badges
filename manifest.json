@@ -1,15 +1,27 @@
 {
   "manifest_version": 3,
-  "name": "CSFloat Pattern Badge",
-  "version": "1.0.0",
-  "description": "Shows tier badges for rare knife patterns on CSFloat",
+  "name": "More CSFloat Badges",
+  "version": "1.1",
+  "description": "Add all ranked marble fade tiers badges for knives on CSFloat",
   "permissions": [],
   "host_permissions": ["https://csfloat.com/*"],
+  "icons": {
+    "16": "ext_icon/16.png",
+    "48": "ext_icon/48.png",
+    "128": "ext_icon/128.png"
+  },
   "content_scripts": [
     {
       "matches": ["https://csfloat.com/*"],
+      "js": ["src/intercept.js"],
+      "run_at": "document_start",
+      "world": "MAIN"
+    },
+    {
+      "matches": ["https://csfloat.com/*"],
       "js": ["src/patterns.js", "src/content.js"],
-      "run_at": "document_idle"
+      "run_at": "document_idle",
+      "world": "ISOLATED"
     }
   ],
   "web_accessible_resources": [
