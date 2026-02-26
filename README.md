@@ -14,10 +14,11 @@ A browser extension that adds pattern tier badges to Marble Fade knife listings 
 
 ## Pattern sources
 
-| Knife | Sources |
-|---|---|
-| Karambit | [korenevskiy's guide](https://steamcommunity.com/sharedfiles/filedetails/?id=2948050515) · [csgoskins](https://csgoskins.gg/blog/karambit-marble-fade-fire-and-ice-seed-patterns) |
-| Talon Knife | [korenevskiy's guide](https://steamcommunity.com/sharedfiles/filedetails/?id=3137093565) |
-| Bayonet | [korenevskiy's guide](https://steamcommunity.com/sharedfiles/filedetails/?id=3137149490) · [csgoskins](https://csgoskins.gg/blog/bayonet-marble-fade-fire-and-ice-seed-patterns) |
-| Flip Knife | [korenevskiy's guide](https://steamcommunity.com/sharedfiles/filedetails/?id=3137162447) · [csgoskins](https://csgoskins.gg/blog/flip-knife-marble-fade-fire-and-ice-seed-patterns) |
-| Gut Knife | [korenevskiy's guide](https://steamcommunity.com/sharedfiles/filedetails/?id=3137163506) · [csgoskins](https://csgoskins.gg/blog/gut-knife-marble-fade-fire-and-ice-seed-patterns) |
+| Weapon | Skin | Sources |
+| --- | --- | --- |
+| Karambit | Marble Fade |  [korenevskiy's guide](https://steamcommunity.com/sharedfiles/filedetails/?id=2948050515) / [csgoskins article](https://csgoskins.gg/blog/karambit-marble-fade-fire-and-ice-seed-patterns) |
+| Talon Knife | Marble Fade | [korenevskiy's guide](https://steamcommunity.com/sharedfiles/filedetails/?id=3137093565) / |
+| Bayonet  | Marble Fade | [korenevskiy's guide](https://steamcommunity.com/sharedfiles/filedetails/?id=3137149490) / [csgoskins article](https://csgoskins.gg/blog/bayonet-marble-fade-fire-and-ice-seed-patterns) |
+| Flip Knife | Marble Fade | [korenevskiy's guide](https://steamcommunity.com/sharedfiles/filedetails/?id=3137162447) / [csgoskins article](https://csgoskins.gg/blog/flip-knife-marble-fade-fire-and-ice-seed-patterns) |
+| Gut Knife | Marble Fade | [korenevskiy's guide](https://steamcommunity.com/sharedfiles/filedetails/?id=3137163506) / [csgoskins article](https://csgoskins.gg/blog/gut-knife-marble-fade-fire-and-ice-seed-patterns) |
+| Specialist Gloves | Fade | [korenevskiy's guide](https://steamcommunity.com/sharedfiles/filedetails/3304802458) / |

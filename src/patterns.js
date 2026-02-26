@@ -128,6 +128,48 @@ const PATTERN_DATA = {
       785, 805, 809, 818, 869, 909, 930, 941, 962, 976, 980, 989,
     ],
   },
+  "★ Specialist Gloves | Fade": {
+    Rank1: [589],
+    Rank2: [992, 263],
+    Rank3: [29, 279, 450, 595, 649, 656, 658, 777, 809, 898, 933],
+    Tier1: [
+      6, 18, 29, 34, 37, 61, 65, 76, 111, 141, 147, 173, 226, 282, 303, 317,
+      366, 414, 427, 488, 490, 629, 633, 821, 916, 960, 979,
+    ],
+    Tier2: [
+      35, 37, 39, 42, 69, 74, 100, 101, 115, 127, 128, 134, 136, 137, 146, 155,
+      170, 186, 189, 191, 219, 222, 235, 237, 244, 252, 253, 269, 271, 273, 275,
+      278, 285, 286, 290, 293, 309, 310, 313, 316, 319, 320, 337, 351, 358, 359,
+      362, 388, 391, 394, 413, 429, 430, 431, 438, 440, 458, 467, 468, 474, 479,
+      483, 512, 530, 542, 544, 556, 562, 563, 566, 569, 578, 581, 583, 590, 591,
+      592, 611, 615, 618, 627, 661, 689, 695, 698, 724, 727, 760, 767, 784, 793,
+      801, 808, 812, 816, 857, 874, 877, 888, 908, 917, 931, 989,
+    ],
+    Tier3: [
+      27, 28, 38, 49, 52, 62, 67, 75, 83, 92, 93, 106, 118, 121, 122, 124, 129,
+      131, 135, 149, 158, 159, 162, 163, 165, 166, 171, 174, 207, 209, 220, 231,
+      243, 245, 255, 256, 259, 262, 274, 277, 281, 289, 298, 299, 305, 328, 331,
+      332, 333, 335, 336, 338, 339, 341, 344, 346, 347, 348, 350, 356, 365, 377,
+      379, 381, 386, 398, 400, 404, 405, 406, 421, 423, 424, 428, 445, 453, 460,
+      470, 478, 486, 492, 519, 520, 523, 524, 532, 533, 549, 559, 561, 564, 565,
+      575, 604, 617, 620, 628, 637, 639, 650, 663, 668, 672, 675, 684, 692, 700,
+      728, 731, 741, 742, 749, 763, 765, 766, 786, 792, 798, 804, 807, 809, 811,
+      818, 823, 828, 830, 840, 841, 842, 848, 861, 865, 866, 869, 875, 883, 885,
+      886, 890, 893, 896, 902, 912, 915, 918, 919, 920, 921, 923, 929, 936, 941,
+      945, 947, 971, 973, 975, 977, 986, 993, 997,
+    ],
+    BTA: [
+      1, 10, 11, 15, 23, 25, 26, 30, 31, 41, 56, 68, 73, 77, 84, 95, 126, 130,
+      132, 138, 139, 142, 143, 144, 153, 156, 172, 176, 185, 190, 192, 193, 194,
+      196, 197, 199, 202, 221, 229, 257, 258, 264, 266, 267, 268, 276, 283, 287,
+      292, 294, 306, 307, 314, 327, 342, 343, 349, 354, 357, 363, 364, 369, 387,
+      392, 393, 407, 408, 439, 456, 475, 476, 495, 498, 504, 525, 528, 576, 580,
+      602, 607, 621, 623, 624, 644, 652, 683, 707, 709, 712, 713, 714, 729, 754,
+      789, 790, 795, 835, 836, 837, 838, 846, 853, 860, 863, 864, 868, 871, 872,
+      891, 892, 897, 899, 939, 944, 951, 953, 957, 968, 984,
+    ],
+    Orange: [188, 234, 876, 910],
+  },
 };
 
 const TIER_PRIORITY = [
@@ -159,3 +201,76 @@ const TIER_LABELS = {
   MaxFake: "Max Fake Fire and Ice Pattern",
   Fake: "Fake Fire and Ice Pattern",
 };
+
+// gradient per fade tier — more purple = better fade
+const FADE_GRADIENTS = {
+  Rank1: {
+    gradient: "linear-gradient(to right, #d9bba5, #e5903b, #db5977, #6775e1)",
+    position: "100%",
+  },
+  Rank2: {
+    gradient: "linear-gradient(to right, #d9bba5, #e5903b, #db5977, #6775e1)",
+    position: "90%",
+  },
+  Rank3: {
+    gradient: "linear-gradient(to right, #d9bba5, #e5903b, #db5977, #6775e1)",
+    position: "80%",
+  },
+  Tier1: {
+    gradient: "linear-gradient(to right, #d9bba5, #e5903b, #db5977, #6775e1)",
+    position: "60%",
+  },
+  Tier2: {
+    gradient: "linear-gradient(to right, #d9bba5, #e5903b, #db5977, #6775e1)",
+    position: "45%",
+  },
+  Tier3: {
+    gradient: "linear-gradient(to right, #d9bba5, #e5903b, #db5977, #6775e1)",
+    position: "30%",
+  },
+  BTA: {
+    gradient: "linear-gradient(to right, #d9bba5, #e5903b, #db5977, #6775e1)",
+    position: "15%",
+  },
+  Orange: {
+    gradient: "linear-gradient(to right, #e8c87a, #f0a030, #e86820, #d04010)",
+    position: "100%",
+  },
+};
+
+// short text shown inside fade badge div
+const FADE_BADGE_TEXT = {
+  Rank1: "R1",
+  Rank2: "R2",
+  Rank3: "R3",
+  Tier1: "T1",
+  Tier2: "T2",
+  Tier3: "T3",
+  BTA: "BTA",
+  Orange: "ORG",
+};
+
+// add glove tiers to TIER_LABELS
+TIER_LABELS["Rank1"] = "#1 Max Fade";
+TIER_LABELS["Rank2"] = "#2 Max Fade";
+TIER_LABELS["Rank3"] = "#3 Max Fade";
+TIER_LABELS["Tier1"] = "Tier 1 Fade";
+TIER_LABELS["Tier2"] = "Tier 2 Fade";
+TIER_LABELS["Tier3"] = "Tier 3 Fade";
+TIER_LABELS["BTA"] = "Better Than Average Fade";
+TIER_LABELS["Orange"] = "Orange Pattern";
+
+// add glove tiers to priority list
+TIER_PRIORITY.push(
+  "Rank1",
+  "Rank2",
+  "Rank3",
+  "Tier1",
+  "Tier2",
+  "Tier3",
+  "BTA",
+  "Orange",
+);
+
+// items that use fade div badge instead of img badge
+const FADE_BADGE_ITEMS = new Set(["★ Specialist Gloves | Fade"]);

@@ -1,6 +1,6 @@
 "use strict";
 
-console.log("[MCB] loaded");
+console.log("[MoreCSFloatBadges] loaded");
 
 const style = document.createElement("style");
 style.textContent = `
@@ -88,7 +88,7 @@ function getTierForItem(item) {
   return null;
 }
 
-// create badge wrapper with icon and label
+// create img badge wrapper for knives
 function createBadgeWrap(tier, isDetail = false) {
   const wrap = document.createElement("div");
   wrap.className = isDetail ? "cfpb-wrap cfpb-detail" : "cfpb-wrap";
@@ -106,6 +106,68 @@ function createBadgeWrap(tier, isDetail = false) {
   return wrap;
 }
 
+// create gradient div badge for fade gloves
+function createFadeBadgeWrap(tier, isDetail = false) {
+  const width = isDetail ? "50px" : "45px";
+  const height = isDetail ? "28px" : "22px";
+  const fontSize = isDetail ? "20px" : "18px";
+  const labelTop = isDetail ? "40px" : "30px";
+
+  const wrap = document.createElement("div");
+  wrap.className = isDetail ? "cfpb-wrap cfpb-detail" : "cfpb-wrap";
+
+  const badge = document.createElement("div");
+  const fade = FADE_GRADIENTS[tier];
+  const gradient =
+    fade?.gradient ??
+    "linear-gradient(to right, #d9bba5, #e5903b, #db5977, #6775e1)";
+  const position = fade?.position ?? "50%";
+
+  badge.style.cssText = `
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: ${fontSize};
+    font-family: Roboto, sans-serif;
+    color: #00000080;
+    width: ${width};
+    height: ${height};
+    padding: 2px;
+    border-radius: 7px;
+    background-image: ${gradient};
+    background-size: 170%;
+    background-position-x: ${position};
+    transition: transform 0.2s ease;
+    transform-origin: center center;
+    box-sizing: border-box;
+  `;
+  badge.textContent = FADE_BADGE_TEXT[tier] ?? tier;
+
+  wrap.addEventListener("mouseenter", () => {
+    badge.style.transform = "scale(1.5)";
+  });
+  wrap.addEventListener("mouseleave", () => {
+    badge.style.transform = "";
+  });
+
+  const label = document.createElement("div");
+  label.className = "cfpb-label";
+  label.textContent = TIER_LABELS[tier] ?? tier;
+  label.style.top = labelTop;
+
+  wrap.appendChild(badge);
+  wrap.appendChild(label);
+  return wrap;
+}
+
+// pick correct badge creator based on item name
+function createCorrectBadgeWrap(itemName, tier, isDetail = false) {
+  return FADE_BADGE_ITEMS.has(itemName)
+    ? createFadeBadgeWrap(tier, isDetail)
+    : createBadgeWrap(tier, isDetail);
+}
+
 // remove overflow:hidden from all parent elements
 function unclipParents(el) {
   let node = el.parentElement;
@@ -119,7 +181,7 @@ function unclipParents(el) {
 // ─── Listings ─────────────────────────────────────────────────────────────────
 
 // inject badge into small listing card
-function injectListingBadge(cardEl, tier) {
+function injectListingBadge(cardEl, item, tier) {
   if (cardEl.querySelector(".cfpb-wrap")) return;
   const container = cardEl.querySelector(".container.ng-star-inserted");
   if (!container) return;
@@ -127,11 +189,11 @@ function injectListingBadge(cardEl, tier) {
     container.style.position = "relative";
   container.style.overflow = "visible";
   unclipParents(container);
-  container.appendChild(createBadgeWrap(tier, false));
+  container.appendChild(createCorrectBadgeWrap(item?.item_name, tier, false));
 }
 
 // inject badge into detail/modal card
-function injectDetailBadge(tier) {
+function injectDetailBadge(itemName, tier) {
   const selectors = [
     "app-item-detail .container.ng-star-inserted",
     "mat-dialog-container app-item-image-actions .container.ng-star-inserted",
@@ -145,14 +207,14 @@ function injectDetailBadge(tier) {
         container.style.position = "relative";
       container.style.overflow = "visible";
       unclipParents(container);
-      container.appendChild(createBadgeWrap(tier, true));
+      container.appendChild(createCorrectBadgeWrap(itemName, tier, true));
       return;
     }
   }
 }
 
 // poll until detail container is rendered then inject
-function waitForDetail(tier) {
+function waitForDetail(itemName, tier) {
   let attempts = 0;
   const id = setInterval(() => {
     const done = document.querySelector(
@@ -162,7 +224,7 @@ function waitForDetail(tier) {
       clearInterval(id);
       return;
     }
-    injectDetailBadge(tier);
+    injectDetailBadge(itemName, tier);
   }, 300);
 }
 
@@ -176,9 +238,9 @@ async function handleItemPage() {
     });
     const data = await res.json();
     const tier = getTierForItem(data?.item);
-    if (tier) waitForDetail(tier);
+    if (tier) waitForDetail(data.item.item_name, tier);
   } catch (e) {
-    console.error("[MCB] item page error:", e);
+    console.error("[MoreCSFloatBadges] item page error:", e);
   }
 }
 
@@ -195,7 +257,7 @@ function checkDialogForBadge() {
   const listing = listingsQueue.find((l) => l.item?.asset_id === m[1]);
   if (!listing) return;
   const tier = getTierForItem(listing.item);
-  if (tier) waitForDetail(tier);
+  if (tier) waitForDetail(listing.item.item_name, tier);
 }
 
 // process queued listings against current DOM cards
@@ -212,8 +274,9 @@ function tryProcess() {
   prevCardCount = count;
 
   while (processedCount < count && processedCount < listingsQueue.length) {
-    const tier = getTierForItem(listingsQueue[processedCount]?.item);
-    if (tier) injectListingBadge(cards[processedCount], tier);
+    const item = listingsQueue[processedCount]?.item;
+    const tier = getTierForItem(item);
+    if (tier) injectListingBadge(cards[processedCount], item, tier);
     processedCount++;
   }
 
@@ -223,18 +286,25 @@ function tryProcess() {
 // ─── Sales history ────────────────────────────────────────────────────────────
 
 // inject tier badge into sales history table row
-function injectSalesBadge(rowEl, tier) {
+function injectSalesBadge(rowEl, itemName, tier) {
   if (rowEl.querySelector(".cfpb-wrap")) return;
-  const td = rowEl.querySelector("td.cdk-column-badges");
+
+  let td = rowEl.querySelector("td.cdk-column-badges");
+  let usesFallback = false;
+
+  if (!td) {
+    // fallback: stickers column for Talon and Fade Gloves
+    td = rowEl.querySelector("td.cdk-column-stickers");
+    usesFallback = true;
+  }
   if (!td) return;
 
-  const wrap = createBadgeWrap(tier, false);
+  const wrap = createCorrectBadgeWrap(itemName, tier, false);
   wrap.style.position = "relative";
   wrap.style.top = "0";
   wrap.style.left = "0";
   wrap.style.display = "inline-flex";
 
-  // place label to the left of the icon
   const label = wrap.querySelector(".cfpb-label");
   if (label) {
     label.style.top = "0";
@@ -247,11 +317,10 @@ function injectSalesBadge(rowEl, tier) {
   td.appendChild(wrap);
 }
 
-// match sales rows to sales data by index and inject badges
+// read paint_seed from 5th cell of table row
 function getSeedFromRow(rowEl) {
-  // get all cells, Paint Seed is 5th column (index 4): Action, Sold, Price, Float Value, Paint Seed
   const cells = rowEl.querySelectorAll("td");
-  if (cells.length >= 4) {
+  if (cells.length >= 5) {
     const val = parseInt(cells[4].textContent.trim(), 10);
     if (!isNaN(val)) return val;
   }
@@ -268,25 +337,51 @@ function applySalesBadges(itemName, rows) {
     if (!patterns) return;
     for (const tier of TIER_PRIORITY) {
       if (patterns[tier]?.includes(seed)) {
-        injectSalesBadge(row, tier);
+        injectSalesBadge(row, itemName, tier);
         break;
       }
     }
   });
 }
 
-// wait for sales table then find its rows specifically
+// wait for sales table then inject badges into correct tbody
 function processSales(itemName) {
+  if (!PATTERN_DATA[itemName]) return;
   let attempts = 0;
   const id = setInterval(() => {
-    // sales table is inside app-sales-table or similar — find the closest tbody
-    // that contains td.cdk-column-badges which is the badge slot
-    const badgeCells = document.querySelectorAll("td.cdk-column-badges");
-    if (badgeCells.length || ++attempts > 20) {
+    let anchorCells = document.querySelectorAll("td.cdk-column-badges");
+    const useStickers = !anchorCells.length;
+    if (useStickers) {
+      anchorCells = document.querySelectorAll("td.cdk-column-stickers");
+    }
+
+    if (anchorCells.length || ++attempts > 20) {
       clearInterval(id);
-      if (!badgeCells.length) return;
-      // get rows from the same tbody as the badge cells
-      const tbody = badgeCells[0].closest("tbody");
+      if (!anchorCells.length) return;
+
+      // rename stickers column header for items without badges column
+      const allHeaders = document.querySelectorAll("th.mat-mdc-header-cell");
+      const lastHeader = allHeaders[allHeaders.length - 1];
+      if (lastHeader && !lastHeader.dataset.cfpbRenamed) {
+        lastHeader.dataset.cfpbRenamed = "true";
+        const span = lastHeader.querySelector("span") ?? lastHeader;
+        span.textContent = "Ranking";
+      }
+
+      if (!useStickers && PATTERN_DATA[itemName]) {
+        const stickerHeader = document.querySelector(
+          "th.cdk-column-stickers, th.mat-column-stickers",
+        );
+        if (stickerHeader) stickerHeader.style.display = "none";
+
+        document
+          .querySelectorAll("td.cdk-column-stickers, td.mat-column-stickers")
+          .forEach((td) => {
+            td.style.display = "none";
+          });
+      }
+
+      const tbody = anchorCells[0].closest("tbody");
       if (!tbody) return;
       const rows = tbody.querySelectorAll("tr.mat-mdc-row");
       if (rows.length) applySalesBadges(itemName, rows);
