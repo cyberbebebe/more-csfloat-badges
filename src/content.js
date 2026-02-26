@@ -1,6 +1,6 @@
 "use strict";
 
-console.log("[CFPB] loaded");
+console.log("[MCB] loaded");
 
 const style = document.createElement("style");
 style.textContent = `
@@ -170,23 +170,15 @@ function waitForDetail(tier) {
 async function handleItemPage() {
   const match = location.pathname.match(/^\/item\/(\d+)$/);
   if (!match) return;
-  console.log("[CFPB] handleItemPage:", match[1]);
   try {
     const res = await fetch(`https://csfloat.com/api/v1/listings/${match[1]}`, {
       credentials: "include",
     });
     const data = await res.json();
-    console.log(
-      "[CFPB] item data:",
-      data?.item?.item_name,
-      "| seed:",
-      data?.item?.paint_seed,
-    );
     const tier = getTierForItem(data?.item);
-    console.log("[CFPB] item tier:", tier);
     if (tier) waitForDetail(tier);
   } catch (e) {
-    console.error("[CFPB] item page error:", e);
+    console.error("[MCB] item page error:", e);
   }
 }
 
@@ -253,7 +245,6 @@ function injectSalesBadge(rowEl, tier) {
   }
 
   td.appendChild(wrap);
-  console.log("[CFPB] sales badge:", tier);
 }
 
 // match sales rows to sales data by index and inject badges
@@ -331,7 +322,6 @@ const observer = new MutationObserver(() => {
   const currentHref = location.href;
   if (currentHref !== lastHref) {
     lastHref = currentHref;
-    console.log("[CFPB] nav:", currentHref);
     if (/\/item\/\d+/.test(currentHref))
       setTimeout(() => handleItemPage(), 500);
     return;
