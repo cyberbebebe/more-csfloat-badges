@@ -1,6 +1,27 @@
 # More CSFloat Badges
 
-A browser extension that adds pattern tier badges to Marble Fade knife listings on [CSFloat](https://csfloat.com), extending coverage from tiers **4th through Fake** - beyond the 1st–3rd tiers that CSFloat shows natively.
+A browser extension that adds patterns-based ranked badges for [CSFloat's](https://csfloat.com) listings and sales history, extending coverage for some Marble Fade knives from tiers **4th through Fake** - beyond the built-in 1st–3rd tiers badges. Also adds ranking badges for Specialist Gloves | Fade.
+Work for all **/listings** (small cards), **/item** item detail (big card) and **Latest Sales** rows.
+
+## Preview
+<table>
+  <tr>
+    <td align="center">
+      <img src="preview/preview_listings.png" width="600" height="200"><br/>
+      <sub>Listings page</sub>
+    </td>
+    <td align="center">
+      <img src="preview/preview_detail.png" width="600"><br/>
+      <sub>Item detail</sub>
+    </td>
+  </tr>
+  <tr>
+    <td align="center" colspan="2">
+      <img src="preview/preview_sales.png"/><br/>
+      <sub>Sales history</sub>
+    </td>
+  </tr>
+</table>
 
 ## 🛠️ Install:
 1. Download from the latest extension `.zip` from [Releases page](https://github.com/cyberbebebe/more-csfloat-badges/releases)
