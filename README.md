@@ -17,7 +17,7 @@ Work for all **/listings** (small cards), **/item** item detail (big card) and *
   </tr>
   <tr>
     <td align="center" colspan="2">
-      <img src="preview/preview_sales.png" width="700"/><br/>
+      <img src="preview/preview_sales.png" width="800"/><br/>
       <sub>Sales history</sub>
     </td>
   </tr>
