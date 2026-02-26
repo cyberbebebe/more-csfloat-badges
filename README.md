@@ -7,7 +7,7 @@ Work for all **/listings** (small cards), **/item** item detail (big card) and *
 <table>
   <tr>
     <td align="center">
-      <img src="preview/preview_listings.png" width="600" height="200"><br/>
+      <img src="preview/preview_listings.png" width="600"><br/>
       <sub>Listings page</sub>
     </td>
     <td align="center">
@@ -17,7 +17,7 @@ Work for all **/listings** (small cards), **/item** item detail (big card) and *
   </tr>
   <tr>
     <td align="center" colspan="2">
-      <img src="preview/preview_sales.png"/><br/>
+      <img src="preview/preview_sales.png" width="700"/><br/>
       <sub>Sales history</sub>
     </td>
   </tr>
