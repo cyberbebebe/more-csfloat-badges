@@ -66,13 +66,16 @@ style.textContent = `
     top: 76px;
   }
 `;
-
 document.head.appendChild(style);
+
+// ─── State ────────────────────────────────────────────────────────────────────
 
 const listingsQueue = [];
 let processedCount = 0;
 let prevCardCount = 0;
 let lastHref = location.href;
+
+// ─── Utils ────────────────────────────────────────────────────────────────────
 
 // find tier for item by item_name and paint_seed
 function getTierForItem(item) {
@@ -112,6 +115,8 @@ function unclipParents(el) {
     node = node.parentElement;
   }
 }
+
+// ─── Listings ─────────────────────────────────────────────────────────────────
 
 // inject badge into small listing card
 function injectListingBadge(cardEl, tier) {
@@ -165,15 +170,23 @@ function waitForDetail(tier) {
 async function handleItemPage() {
   const match = location.pathname.match(/^\/item\/(\d+)$/);
   if (!match) return;
+  console.log("[CFPB] handleItemPage:", match[1]);
   try {
     const res = await fetch(`https://csfloat.com/api/v1/listings/${match[1]}`, {
       credentials: "include",
     });
     const data = await res.json();
+    console.log(
+      "[CFPB] item data:",
+      data?.item?.item_name,
+      "| seed:",
+      data?.item?.paint_seed,
+    );
     const tier = getTierForItem(data?.item);
+    console.log("[CFPB] item tier:", tier);
     if (tier) waitForDetail(tier);
   } catch (e) {
-    console.error("[MCB] item page error:", e);
+    console.error("[CFPB] item page error:", e);
   }
 }
 
@@ -215,29 +228,110 @@ function tryProcess() {
   checkDialogForBadge();
 }
 
-// receive intercepted listings data from intercept.js via postMessage
-window.addEventListener("message", (event) => {
-  if (event.source !== window) return;
-  if (
-    event.data?.source !== "CSFloatPatternBadge" ||
-    event.data?.type !== "LISTINGS_DATA"
-  )
-    return;
+// ─── Sales history ────────────────────────────────────────────────────────────
 
-  if (event.data.isFirstPage) {
-    listingsQueue.length = 0;
-    processedCount = 0;
+// inject tier badge into sales history table row
+function injectSalesBadge(rowEl, tier) {
+  if (rowEl.querySelector(".cfpb-wrap")) return;
+  const td = rowEl.querySelector("td.cdk-column-badges");
+  if (!td) return;
+
+  const wrap = createBadgeWrap(tier, false);
+  wrap.style.position = "relative";
+  wrap.style.top = "0";
+  wrap.style.left = "0";
+  wrap.style.display = "inline-flex";
+
+  // place label to the left of the icon
+  const label = wrap.querySelector(".cfpb-label");
+  if (label) {
+    label.style.top = "0";
+    label.style.left = "auto";
+    label.style.right = "100%";
+    label.style.marginTop = "0";
+    label.style.marginRight = "6px";
   }
 
-  listingsQueue.push(...event.data.payload);
-  tryProcess();
+  td.appendChild(wrap);
+  console.log("[CFPB] sales badge:", tier);
+}
+
+// match sales rows to sales data by index and inject badges
+function getSeedFromRow(rowEl) {
+  // get all cells, Paint Seed is 5th column (index 4): Action, Sold, Price, Float Value, Paint Seed
+  const cells = rowEl.querySelectorAll("td");
+  if (cells.length >= 4) {
+    const val = parseInt(cells[4].textContent.trim(), 10);
+    if (!isNaN(val)) return val;
+  }
+  return null;
+}
+
+// inject badges by reading paint_seed directly from each row
+function applySalesBadges(itemName, rows) {
+  rows.forEach((row) => {
+    if (row.querySelector(".cfpb-wrap")) return;
+    const seed = getSeedFromRow(row);
+    if (seed == null) return;
+    const patterns = PATTERN_DATA[itemName];
+    if (!patterns) return;
+    for (const tier of TIER_PRIORITY) {
+      if (patterns[tier]?.includes(seed)) {
+        injectSalesBadge(row, tier);
+        break;
+      }
+    }
+  });
+}
+
+// wait for sales table then find its rows specifically
+function processSales(itemName) {
+  let attempts = 0;
+  const id = setInterval(() => {
+    // sales table is inside app-sales-table or similar — find the closest tbody
+    // that contains td.cdk-column-badges which is the badge slot
+    const badgeCells = document.querySelectorAll("td.cdk-column-badges");
+    if (badgeCells.length || ++attempts > 20) {
+      clearInterval(id);
+      if (!badgeCells.length) return;
+      // get rows from the same tbody as the badge cells
+      const tbody = badgeCells[0].closest("tbody");
+      if (!tbody) return;
+      const rows = tbody.querySelectorAll("tr.mat-mdc-row");
+      if (rows.length) applySalesBadges(itemName, rows);
+    }
+  }, 300);
+}
+
+// ─── Message listener ─────────────────────────────────────────────────────────
+
+// receive intercepted data from intercept.js via postMessage
+window.addEventListener("message", (event) => {
+  if (event.source !== window) return;
+  if (event.data?.source !== "CSFloatPatternBadge") return;
+
+  if (event.data.type === "LISTINGS_DATA") {
+    if (event.data.isFirstPage) {
+      listingsQueue.length = 0;
+      processedCount = 0;
+    }
+    listingsQueue.push(...event.data.payload);
+    tryProcess();
+  }
+
+  if (event.data.type === "SALES_DATA") {
+    processSales(event.data.itemName);
+  }
 });
+
+// ─── MutationObserver ─────────────────────────────────────────────────────────
 
 // observe DOM for new cards and SPA navigation changes
 const observer = new MutationObserver(() => {
   const currentHref = location.href;
   if (currentHref !== lastHref) {
     lastHref = currentHref;
+    console.log("[CFPB] nav:", currentHref);
     if (/\/item\/\d+/.test(currentHref))
       setTimeout(() => handleItemPage(), 500);
     return;
