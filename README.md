@@ -3,6 +3,7 @@
 <img src="icons/1st.png" height="48"/> <img src="icons/2nd.png" height="48"/> <img src="icons/3rd.png" height="48"/> <img src="icons/4th.png" height="48"/> <img src="icons/5th.png" height="48"/> <img src="icons/6th.png" height="48"/> <img src="icons/7th.png" height="48"/> <img src="icons/8th.png" height="48"/> <img src="icons/9th.png" height="48"/> <img src="icons/10th.png" height="48"/> <img src="icons/MaxFake.png" height="48"/> <img src="icons/Fake.png" height="48"/>
 
 A browser extension that adds patterns-based ranked badges for [CSFloat's](https://csfloat.com) listings and sales history, extending coverage for some Marble Fade knives from tiers **4th through Fake** - beyond the built-in 1st–3rd tiers badges. Also adds ranking badges for Specialist Gloves | Fade.
+
 Work for all **/listings** (small cards), **/item** item detail (big card) and **Latest Sales** rows.
 
 ## Preview
