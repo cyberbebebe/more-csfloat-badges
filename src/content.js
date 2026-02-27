@@ -44,11 +44,10 @@ style.textContent = `
     display: block;
     pointer-events: none;
     transform-origin: center center;
-    image-rendering: crisp-edges;
   }
 
   .cfpb-wrap:hover img {
-    transform: scale(1.75);
+    transform: scale(1.5);
   }
 
   .cfpb-label {
@@ -187,8 +186,8 @@ function createFadeBadgeWrap(tier, isDetail = false) {
   document.body.appendChild(label);
 
   wrap.addEventListener("mouseenter", () => {
-    img.style.transform = "scale(1.75)";
-    const rect = img.getBoundingClientRect();
+    badge.style.transform = "scale(1.5)";
+    const rect = badge.getBoundingClientRect();
     const w = label.offsetWidth || 150;
     let left = rect.left + rect.width / 2 - w / 2;
     left = Math.min(left, window.innerWidth - w - 8);

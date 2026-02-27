@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "More CSFloat Badges",
-  "version": "1.5.1",
+  "version": "1.5.2",
   "description": "Add all ranked marble fade tiers badges for knives on CSFloat",
   "permissions": [],
   "host_permissions": ["https://csfloat.com/*"],
