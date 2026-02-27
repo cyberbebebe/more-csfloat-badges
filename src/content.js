@@ -14,15 +14,14 @@ style.textContent = `
     align-items: flex-start;
     pointer-events: auto;
     cursor: pointer;
-    width: 35px;
+    width: 30px;
     overflow: visible;
   }
 
   .cfpb-wrap img {
-    width: 35px;
+    width: 30px;
     height: auto;
-    filter: drop-shadow(0 1px 3px rgba(0,0,0,0.9));
-    transition: transform 0.2s ease;
+    transition: all 0.2s ease-in-out;
     display: block;
     pointer-events: none;
     transform-origin: center center;
@@ -37,7 +36,7 @@ style.textContent = `
     opacity: 0;
     pointer-events: none;
     white-space: nowrap;
-    background: var(--backing-background-color);
+    background: var(--dropdown-color);
     color: var(--primary-text-color);
     font-family: Roboto, "Helvetica Neue", sans-serif;
     font-size: 12px;
@@ -45,13 +44,13 @@ style.textContent = `
     line-height: 16px;
     letter-spacing: .0333333333em;
     padding: 4px 8px;
+    border: 2px solid var(--highlight-background);
+    border-radius: 5px;
+    backdrop-filter: blur(10px);
     box-sizing: initial;
-    transition: opacity 0.2s ease;
-    position: absolute;
-    top: 50px;
-    left: 0;
-    z-index: 999;
-    transform: none !important;
+    transition: opacity 0.2s;
+    position: fixed;
+    z-index: 9999;
   }
 
   .cfpb-wrap:hover .cfpb-label {
@@ -59,12 +58,14 @@ style.textContent = `
   }
 
   .cfpb-wrap.cfpb-detail img {
-    width: 56px;
+    width: 48px;
   }
 
-  .cfpb-wrap.cfpb-detail .cfpb-label {
-    top: 76px;
+  app-item-badge .container {
+    display: block !important;
+    text-align: center;
   }
+
 `;
 document.head.appendChild(style);
 
@@ -89,6 +90,7 @@ function getTierForItem(item) {
 }
 
 // create img badge wrapper for knives
+// create img badge wrapper for knives
 function createBadgeWrap(tier, isDetail = false) {
   const wrap = document.createElement("div");
   wrap.className = isDetail ? "cfpb-wrap cfpb-detail" : "cfpb-wrap";
@@ -97,12 +99,29 @@ function createBadgeWrap(tier, isDetail = false) {
   img.src = chrome.runtime.getURL(`icons/${tier}.png`);
   img.alt = tier;
 
+  // label lives on body — not clipped by any parent overflow
   const label = document.createElement("div");
   label.className = "cfpb-label";
   label.textContent = TIER_LABELS[tier] ?? tier;
+  document.body.appendChild(label);
+
+  wrap.addEventListener("mouseenter", () => {
+    img.style.transform = "scale(1.75)";
+    const rect = img.getBoundingClientRect(); // ← img замість wrap
+    const w = label.offsetWidth || 150;
+    let left = rect.left + rect.width / 2 - w / 2;
+    left = Math.min(left, window.innerWidth - w - 8);
+    left = Math.max(left, 8);
+    label.style.left = `${left}px`;
+    label.style.top = `${rect.bottom + 4}px`;
+    label.style.opacity = "1";
+  });
+  wrap.addEventListener("mouseleave", () => {
+    img.style.transform = "";
+    label.style.opacity = "0";
+  });
 
   wrap.appendChild(img);
-  wrap.appendChild(label);
   return wrap;
 }
 
@@ -111,7 +130,6 @@ function createFadeBadgeWrap(tier, isDetail = false) {
   const width = isDetail ? "50px" : "45px";
   const height = isDetail ? "28px" : "22px";
   const fontSize = isDetail ? "20px" : "18px";
-  const labelTop = isDetail ? "40px" : "30px";
 
   const wrap = document.createElement("div");
   wrap.className = isDetail ? "cfpb-wrap cfpb-detail" : "cfpb-wrap";
@@ -144,20 +162,29 @@ function createFadeBadgeWrap(tier, isDetail = false) {
   `;
   badge.textContent = FADE_BADGE_TEXT[tier] ?? tier;
 
-  wrap.addEventListener("mouseenter", () => {
-    badge.style.transform = "scale(1.5)";
-  });
-  wrap.addEventListener("mouseleave", () => {
-    badge.style.transform = "";
-  });
-
+  // label lives on body — not clipped by any parent overflow
   const label = document.createElement("div");
   label.className = "cfpb-label";
   label.textContent = TIER_LABELS[tier] ?? tier;
-  label.style.top = labelTop;
+  document.body.appendChild(label);
+
+  wrap.addEventListener("mouseenter", () => {
+    img.style.transform = "scale(1.75)";
+    const rect = img.getBoundingClientRect(); // ← img замість wrap
+    const w = label.offsetWidth || 150;
+    let left = rect.left + rect.width / 2 - w / 2;
+    left = Math.min(left, window.innerWidth - w - 8);
+    left = Math.max(left, 8);
+    label.style.left = `${left}px`;
+    label.style.top = `${rect.bottom + 4}px`;
+    label.style.opacity = "1";
+  });
+  wrap.addEventListener("mouseleave", () => {
+    badge.style.transform = "";
+    label.style.opacity = "0";
+  });
 
   wrap.appendChild(badge);
-  wrap.appendChild(label);
   return wrap;
 }
 

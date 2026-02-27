@@ -2,20 +2,20 @@
 
 <img src="icons/1st.png" height="56"/> <img src="icons/2nd.png" height="56"/> <img src="icons/3rd.png" height="56"/> <img src="icons/4th.png" height="56"/> <img src="icons/5th.png" height="56"/> <img src="icons/6th.png" height="56"/> <img src="icons/7th.png" height="56"/> <img src="icons/8th.png" height="56"/> <img src="icons/9th.png" height="56"/> <img src="icons/10th.png" height="56"/> <img src="icons/MaxFake.png" height="56"/> <img src="icons/Fake.png" height="56"/>
 
-A browser extension that adds patterns-based ranked badges for [CSFloat's](https://csfloat.com) listings and sales history, extending coverage for some Marble Fade knives from tiers **4th through Fake** - beyond the built-in 1st–3rd tiers badges. Also adds ranking badges for Specialist Gloves | Fade.
+A browser extension that adds patterns-based ranked badges for [CSFloat's](https://csfloat.com) listings and sales history, extending coverage for some Marble Fade knives from tiers **4th through Fake** - beyond the built-in 1st–3rd tiers badges. Also adds ranking badges for Specialist Gloves | Fade. Changes history columns a little for items custom badges are injecting for.
 
 Work for all **/listings** (small cards), **/item** item detail (big card) and **Latest Sales** rows.
 
-## Preview
+## 🔍 Preview 
 
 <table>
   <tr>
     <td align="center">
-      <img src="preview/preview_listings.png" width="600"><br/>
+      <img src="preview/preview_listings.png" ><br/>
       <sub>Listings page</sub>
     </td>
     <td align="center">
-      <img src="preview/preview_detail.png" width="600"><br/>
+      <img src="preview/preview_detail.png" width="750"><br/>
       <sub>Item detail</sub>
     </td>
   </tr>
