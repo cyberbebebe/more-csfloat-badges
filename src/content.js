@@ -4,6 +4,25 @@ console.log("[MoreCSFloatBadges] loaded");
 
 const style = document.createElement("style");
 style.textContent = `
+
+  /* improved sales history by https://github.com/Allyans3 */
+  .grid-history {
+    contain: none !important;
+  }
+
+  .history-component {
+    overflow: unset !important;
+  }
+
+  .history-component .container:has(div.table-container) {
+    height: auto !important;
+  }
+
+  .history-component .table-container {
+    overscroll-behavior: auto !important;
+  }
+  
+  /* custom badges */
   .cfpb-wrap {
     position: absolute;
     top: 6px;
