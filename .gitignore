@@ -7,4 +7,6 @@ Thumbs.db
 .idea/
 
 # Build artifacts
+old_icons
+raw_icons
 *.zip

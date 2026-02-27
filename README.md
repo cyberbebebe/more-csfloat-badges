@@ -1,6 +1,6 @@
 # More CSFloat Badges
 
-<div align="center" style="background-color:#1c1e26; border-radius:15px; padding:10px; display:flex; justify-content:space-around; align-items:center; flex-wrap:nowrap;">
+<div align="center">
   <img src="icons/1st.png" height="56"/>
   <img src="icons/2nd.png" height="56"/>
   <img src="icons/3rd.png" height="56"/>
