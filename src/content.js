@@ -90,7 +90,6 @@ function getTierForItem(item) {
 }
 
 // create img badge wrapper for knives
-// create img badge wrapper for knives
 function createBadgeWrap(tier, isDetail = false) {
   const wrap = document.createElement("div");
   wrap.className = isDetail ? "cfpb-wrap cfpb-detail" : "cfpb-wrap";
@@ -107,7 +106,7 @@ function createBadgeWrap(tier, isDetail = false) {
 
   wrap.addEventListener("mouseenter", () => {
     img.style.transform = "scale(1.75)";
-    const rect = img.getBoundingClientRect(); // ← img замість wrap
+    const rect = img.getBoundingClientRect();
     const w = label.offsetWidth || 150;
     let left = rect.left + rect.width / 2 - w / 2;
     left = Math.min(left, window.innerWidth - w - 8);
@@ -170,7 +169,7 @@ function createFadeBadgeWrap(tier, isDetail = false) {
 
   wrap.addEventListener("mouseenter", () => {
     img.style.transform = "scale(1.75)";
-    const rect = img.getBoundingClientRect(); // ← img замість wrap
+    const rect = img.getBoundingClientRect();
     const w = label.offsetWidth || 150;
     let left = rect.left + rect.width / 2 - w / 2;
     left = Math.min(left, window.innerWidth - w - 8);

@@ -1,7 +1,7 @@
 (function () {
   "use strict";
 
-  console.log("[CFPB] intercept.js running");
+  console.log("[MoreCSFloatBadges] intercept.js running");
 
   const OriginalXHR = window.XMLHttpRequest;
 
@@ -27,10 +27,6 @@
                 _url,
                 location.origin,
               ).searchParams.has("cursor");
-              console.log(
-                "[CFPB] XHR listings/stall caught, items:",
-                data.data.length,
-              );
               window.postMessage(
                 {
                   source: "CSFloatPatternBadge",
@@ -43,7 +39,7 @@
               );
             }
           } catch (e) {
-            console.error("[CFPB] XHR parse error:", e);
+            console.error("[MoreCSFloatBadges] XHR parse error:", e);
           }
         });
       }
@@ -56,17 +52,9 @@
             const match = _url.match(/\/history\/(.+?)\/sales/);
             if (!match) return;
             const itemName = decodeURIComponent(match[1]);
-            // strip wear from market_hash_name to get item_name
-            // e.g. "★ Flip Knife | Marble Fade (Factory New)" → "★ Flip Knife | Marble Fade"
             const cleanName = itemName.replace(/\s*\([^)]+\)$/, "");
             const sales = Array.isArray(data) ? data : data?.data;
             if (!Array.isArray(sales)) return;
-            console.log(
-              "[CFPB] XHR sales caught:",
-              cleanName,
-              "items:",
-              sales.length,
-            );
             window.postMessage(
               {
                 source: "CSFloatPatternBadge",
@@ -77,7 +65,7 @@
               "*",
             );
           } catch (e) {
-            console.error("[CFPB] XHR sales parse error:", e);
+            console.error("[MoreCSFloatBadges] XHR sales parse error:", e);
           }
         });
       }
@@ -96,5 +84,4 @@
   );
 
   window.XMLHttpRequest = PatchedXHR;
-  console.log("[CFPB] XHR wrapped successfully");
 })();
