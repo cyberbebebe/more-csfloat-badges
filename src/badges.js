@@ -23,7 +23,6 @@ function createImgBadge(phase, tier, isDetail = false) {
       const w = tooltip.offsetWidth;
       let left = rect.left + rect.width / 2 - w / 2;
 
-      // Твої ідеальні ліміти екрану
       left = Math.min(left, window.innerWidth - w - 8);
       left = Math.max(left, 8);
 
@@ -35,7 +34,7 @@ function createImgBadge(phase, tier, isDetail = false) {
 
   wrap.addEventListener("mouseleave", () => {
     if (tooltip) {
-      tooltip.remove(); // Видаляємо з DOM повністю
+      tooltip.remove();
       tooltip = null;
     }
   });

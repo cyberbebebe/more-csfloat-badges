@@ -33,11 +33,11 @@ A browser extension for [CSFloat](https://csfloat.com) that expands pattern base
 
 <table>
   <tr>
-    <td align="center" width="50%">
+    <td align="center" width="45%">
       <img src="preview/preview_listings.png" alt="Listings page"><br/>
       <b>Listings page</b>
     </td>
-    <td align="center" width="45%">
+    <td align="center" width="55%">
       <img src="preview/preview_detail.png" alt="Item detail"><br/>
       <b>Item detail</b>
     </td>

@@ -26,7 +26,6 @@
 }
 
 .mcb-badge img {
-  border-radius: 8px;
   display: block;
   transition: all 0.2s ease-in-out;
   transform-origin: center center;
