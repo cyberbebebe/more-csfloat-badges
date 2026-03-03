@@ -1,0 +1,63 @@
+/* improved sales history by https://github.com/Allyans3 */
+.grid-history {
+  contain: none !important;
+}
+
+.history-component {
+  overflow: unset !important;
+}
+
+.history-component .container:has(div.table-container) {
+  height: auto !important;
+}
+
+.history-component .table-container {
+  overscroll-behavior: auto !important;
+}
+
+/* custom badge & label styles */
+.mcb-badge {
+  --badge-hover-scale: 1.5;
+  cursor: pointer;
+}
+
+.mcb-badge.mcb-detail {
+  --badge-hover-scale: 1.3;
+}
+
+.mcb-badge img {
+  border-radius: 8px;
+  display: block;
+  transition: all 0.2s ease-in-out;
+  transform-origin: center center;
+}
+
+.mcb-badge:hover img,
+.mcb-badge:hover .mcb-fade-badge {
+  transform: scale(var(--badge-hover-scale, 1.5));
+}
+
+.mcb-badge.mcb-detail:hover img,
+.mcb-badge.mcb-detail:hover .mcb-fade-badge {
+  transform: scale(var(--badge-hover-scale, 1.3));
+}
+
+.mcb-label {
+  opacity: 0;
+  pointer-events: none;
+  white-space: nowrap;
+  background: var(--dropdown-color);
+  color: var(--primary-text-color);
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  letter-spacing: 0.034em;
+  padding: 4px 8px;
+  border: 2px solid var(--highlight-background);
+  border-radius: 5px;
+  backdrop-filter: blur(10px);
+  transition: opacity 0.2s ease-in-out;
+  position: fixed;
+  z-index: 999999;
+}

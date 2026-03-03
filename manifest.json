@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
   "name": "More CSFloat Badges",
-  "version": "1.5.2",
-  "description": "Add all ranked marble fade tiers badges for knives on CSFloat",
+  "version": "2.0.0",
+  "description": "Enhance CSFloat listings and sales with custom pattern tier badges for Marble Fade, Gamma Doppler and more",
   "permissions": [],
   "host_permissions": ["https://csfloat.com/*"],
   "icons": {
@@ -19,7 +19,16 @@
     },
     {
       "matches": ["https://csfloat.com/*"],
-      "js": ["src/patterns.js", "src/content.js"],
+      "css": ["styles/badge-styles.css"],
+      "js": [
+        "src/patterns.js",
+        "src/utils.js",
+        "src/sales.js",
+        "src/badges.js",
+        "src/inject.js",
+        "src/listings.js",
+        "src/content.js"
+      ],
       "run_at": "document_idle",
       "world": "ISOLATED"
     }

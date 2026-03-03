@@ -1,87 +1,55 @@
 (function () {
   "use strict";
 
-  console.log("[MoreCSFloatBadges] intercept.js running");
+  console.log("[MoreCSFloatBadges] intercept.js loaded");
 
-  const OriginalXHR = window.XMLHttpRequest;
+  const XHR = window.XMLHttpRequest.prototype;
+  const originalOpen = XHR.open;
+  const originalSend = XHR.send;
 
-  // wrap XMLHttpRequest to intercept /api/v1/listings, /stall and /sales responses
-  function PatchedXHR() {
-    const xhr = new OriginalXHR();
-    const _open = xhr.open.bind(xhr);
-    const _send = xhr.send.bind(xhr);
-    let _url = "";
+  XHR.open = function (method, url, ...rest) {
+    this._mcbUrl = url;
+    return originalOpen.call(this, method, url, ...rest);
+  };
 
-    xhr.open = function (method, url, ...rest) {
-      _url = url;
-      return _open(method, url, ...rest);
-    };
+  XHR.send = function (...args) {
+    this.addEventListener("load", () => {
+      const url = this._mcbUrl || "";
+      if (
+        url.includes("/listings?") ||
+        url.includes("/users") ||
+        url.includes("/sales")
+      ) {
+        try {
+          const resp = JSON.parse(this.responseText);
 
-    xhr.send = function (...args) {
-      if (_url.includes("/api/v1/listings") || _url.includes("/stall")) {
-        xhr.addEventListener("load", function () {
-          try {
-            const data = JSON.parse(xhr.responseText);
-            if (Array.isArray(data?.data)) {
-              const isFirstPage = !new URL(
-                _url,
-                location.origin,
-              ).searchParams.has("cursor");
-              window.postMessage(
-                {
-                  source: "CSFloatPatternBadge",
-                  type: "LISTINGS_DATA",
-                  payload: data.data,
-                  cursor: data.cursor ?? null,
-                  isFirstPage: isFirstPage,
-                },
-                "*",
-              );
-            }
-          } catch (e) {
-            console.error("[MoreCSFloatBadges] XHR parse error:", e);
-          }
-        });
-      }
-
-      if (_url.includes("/sales")) {
-        xhr.addEventListener("load", function () {
-          try {
-            const data = JSON.parse(xhr.responseText);
-            // decode item name from URL: /api/v1/history/<name>/sales
-            const match = _url.match(/\/history\/(.+?)\/sales/);
-            if (!match) return;
-            const itemName = decodeURIComponent(match[1]);
-            const cleanName = itemName.replace(/\s*\([^)]+\)$/, "");
-            const sales = Array.isArray(data) ? data : data?.data;
-            if (!Array.isArray(sales)) return;
+          if (url.includes("/listings?") || url.includes("/users")) {
             window.postMessage(
               {
-                source: "CSFloatPatternBadge",
-                type: "SALES_DATA",
-                itemName: cleanName,
-                payload: sales,
+                source: "MoreCSFloatBadges",
+                type: "LISTINGS_DATA",
+                payload: resp.data,
+                isFirst: !url.includes("cursor="),
               },
               "*",
             );
-          } catch (e) {
-            console.error("[MoreCSFloatBadges] XHR sales parse error:", e);
+          } else if (url.includes("/sales")) {
+            window.postMessage(
+              {
+                source: "MoreCSFloatBadges",
+                type: "SALES_DATA",
+                payload: resp,
+              },
+              "*",
+            );
           }
-        });
+        } catch (e) {
+          console.error("[MoreCSFloatBadges] XHR parse error:", e);
+        }
       }
+    });
 
-      return _send(...args);
-    };
-
-    return xhr;
-  }
-
-  Object.setPrototypeOf(PatchedXHR, OriginalXHR);
-  PatchedXHR.prototype = OriginalXHR.prototype;
-  Object.defineProperties(
-    PatchedXHR,
-    Object.getOwnPropertyDescriptors(OriginalXHR),
-  );
-
-  window.XMLHttpRequest = PatchedXHR;
+    return originalSend.apply(this, args);
+  };
+  console.log("[MoreCSFloatBadges] Network interceptors active");
 })();

@@ -15,27 +15,37 @@
   <img src="icons/Fake.png" height="56"/>
 </div>
 
-A browser extension that adds patterns-based ranked badges for [CSFloat's](https://csfloat.com) listings and sales history, extending coverage for some Marble Fade knives from tiers **4th through Fake** - beyond the built-in 1st–3rd tiers badges. Also adds ranking badges for Specialist Gloves | Fade. Changes history columns a little for items custom badges are injecting for.
+## ✨ Features:
 
-Work for all **/listings** (small cards), **/item** item detail (big card) and **Latest Sales** rows.
+A browser extension for [CSFloat](https://csfloat.com) that expands pattern based badges system.
 
-## 🔍 Preview 
+1. **Comprehensive Pattern Badges:** Injects expanded tier badges directly into item cards (see screenshots below) in the most native way. This fills the gap left by native CSFloat badges (cover only from 1st to 3rd Fire and Ice tiers):
+   - **Marble Fade Knives:** Tracks from 4th Max down to Fake Fire & Ice (from 1st for Talon).
+   - **Fade Gloves:** Ranks (1st-3rd, above tiers), Tiers (1st-3rd, BTA), and the Orange pattern.
+   - **Gamma Doppler (Phase 2):** Identifies and badges Tiers 1st through 4th, plus BTA (Better Than Average) patterns.
+   - **More patterns support in future (like max pink and max red tips, etc)**
+
+2. **Enhanced Sales History Table:** Upgrades the UI and convenience of the "Latest Sales" table. It automatically hides redundant columns and integrates pattern badges directly into the sales rows, making price-checking rare patterns much faster.
+
+3. **BetterFloat Synergy:** Fully compatible with the [BetterFloat extension](https://github.com/GODrums/BetterFloat). It works exceptionally well alongside their "Show In-Game Pictures" feature, allowing you to **instantly compare the visual differences** between pattern tiers directly on the item cards.
+
+## 🔍 Preview
 
 <table>
   <tr>
-    <td align="center">
-      <img src="preview/preview_listings.png" ><br/>
-      <sub>Listings page</sub>
+    <td align="center" width="50%">
+      <img src="preview/preview_listings.png" alt="Listings page"><br/>
+      <b>Listings page</b>
     </td>
-    <td align="center">
-      <img src="preview/preview_detail.png" width="750"><br/>
-      <sub>Item detail</sub>
+    <td align="center" width="45%">
+      <img src="preview/preview_detail.png" alt="Item detail"><br/>
+      <b>Item detail</b>
     </td>
   </tr>
   <tr>
     <td align="center" colspan="2">
-      <img src="preview/preview_sales.png" width="800"/><br/>
-      <sub>Sales history</sub>
+      <img src="preview/preview_sales.png" alt="Sales history"><br/>
+      <b>Sales history</b>
     </td>
   </tr>
 </table>
@@ -53,11 +63,8 @@ Work for all **/listings** (small cards), **/item** item detail (big card) and *
 
 ## Pattern sources
 
-| Weapon            | Skin        | Sources                                                                                                                                                                                     |
-| ----------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Karambit          | Marble Fade | [korenevskiy's guide](https://steamcommunity.com/sharedfiles/filedetails/?id=2948050515) / [csgoskins article](https://csgoskins.gg/blog/karambit-marble-fade-fire-and-ice-seed-patterns)   |
-| Talon Knife       | Marble Fade | [korenevskiy's guide](https://steamcommunity.com/sharedfiles/filedetails/?id=3137093565) /                                                                                                  |
-| Bayonet           | Marble Fade | [korenevskiy's guide](https://steamcommunity.com/sharedfiles/filedetails/?id=3137149490) / [csgoskins article](https://csgoskins.gg/blog/bayonet-marble-fade-fire-and-ice-seed-patterns)    |
-| Flip Knife        | Marble Fade | [korenevskiy's guide](https://steamcommunity.com/sharedfiles/filedetails/?id=3137162447) / [csgoskins article](https://csgoskins.gg/blog/flip-knife-marble-fade-fire-and-ice-seed-patterns) |
-| Gut Knife         | Marble Fade | [korenevskiy's guide](https://steamcommunity.com/sharedfiles/filedetails/?id=3137163506) / [csgoskins article](https://csgoskins.gg/blog/gut-knife-marble-fade-fire-and-ice-seed-patterns)  |
-| Specialist Gloves | Fade        | [korenevskiy's guide](https://steamcommunity.com/sharedfiles/filedetails/3304802458) /                                                                                                      |
+| Skin                  | Items                                  | Source                                                                                   |
+| --------------------- | -------------------------------------- | ---------------------------------------------------------------------------------------- |
+| Marble Fade           | Karambit, Talon, Bayonet, Flip, Gut    | [korenevskiy's guide](https://steamcommunity.com/sharedfiles/filedetails/?id=2948050515) |
+| Fade                  | Specialist Gloves                      | [korenevskiy's guide](https://steamcommunity.com/sharedfiles/filedetails/3304802458)     |
+| Gamma Doppler Phase 2 | Butterfly, Karambit, M9, Bayonet, Flip | [korenevskiy's guide](https://steamcommunity.com/sharedfiles/filedetails/?id=3284341165) |
