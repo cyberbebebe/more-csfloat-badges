@@ -4,6 +4,13 @@ function processSales(payload) {
   const sales = Array.isArray(payload) ? payload : payload?.data || [];
   if (sales.length === 0) return;
 
+  const hasSupportedItems = sales.some((sale) => {
+    const item = sale?.item;
+    return item && getPhase(item);
+  });
+
+  if (!hasSupportedItems) return;
+
   let attempts = 0;
   const id = setInterval(() => {
     // 1. Find sales table

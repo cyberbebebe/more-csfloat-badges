@@ -1,7 +1,10 @@
 function getPhase(item) {
-  const knife = PATTERNS[item.item_name];
-  if (!knife) return null;
-  return knife[item.paint_index] ?? knife[ANY] ?? null;
+  if (!item || !item.def_index || !item.paint_index) return null;
+
+  const weapon = PATTERNS[item.def_index];
+  if (!weapon) return null;
+
+  return weapon[item.paint_index] ?? null;
 }
 
 function getTier(item) {

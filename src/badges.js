@@ -59,14 +59,15 @@ function createFadeBadge(phase, tier, isDetail = false) {
 
   // 4. text
   const span = document.createElement("span");
-  span.textContent = tier;
+  span.textContent = tier.split("_")[0]; // fix for different patterns for 1 skin (maxcyan and maxgreen gamma p3)
   span.style.color = "#00000080";
   span.style.pointerEvents = "none";
 
   const fadeInfo = phase.badge?.fade_type?.[tier];
-  const gradient =
+  let gradient =
     fadeInfo?.gradient ??
     "linear-gradient(to right, #d9bba5, #e5903b, #db5977, #6775e1)";
+  gradient = gradient.replace("to right", "to top right");
   const position = fadeInfo?.position ?? "50%";
 
   badge.style.cssText = `

@@ -16,9 +16,18 @@
 }
 
 /* custom badge & label styles */
+@keyframes mcb-appear {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 .mcb-badge {
   --badge-hover-scale: 1.5;
   cursor: pointer;
+  animation: mcb-appear 0.15s ease-in 0.15s both;
 }
 
 .mcb-badge.mcb-detail {
@@ -59,4 +68,9 @@
   transition: opacity 0.2s ease-in-out;
   position: fixed;
   z-index: 999999;
+}
+
+/* Delete badge if BetterFloat added their */
+app-item-image-actions:has(.bf-tooltip) .mcb-badge {
+  display: none !important;
 }

@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
   "name": "More CSFloat Badges",
-  "version": "2.0.1",
-  "description": "Enhance CSFloat listings and sales with custom pattern tier badges for Marble Fade, Gamma Doppler and more",
+  "version": "2.1.0",
+  "description": "Enhance CSFloat listings and sales with custom pattern tier badges for Marble Fade, Doppler, Gamma Doppler and more",
   "permissions": [],
   "host_permissions": ["https://csfloat.com/*"],
   "icons": {
@@ -21,6 +21,8 @@
       "matches": ["https://csfloat.com/*"],
       "css": ["styles/badge-styles.css"],
       "js": [
+        "src/labels.js",
+        "src/gradients.js",
         "src/patterns.js",
         "src/utils.js",
         "src/sales.js",
