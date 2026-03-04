@@ -293,7 +293,7 @@ const PATTERNS = {
         fade_type: doppler_P1_fbp_gradients,
         badge_type: "doppler-P1",
       },
-      labels: GAMMA_DOPPLER_P2_LABELS,
+      labels: DOPPLER_P1_FBP_LABELS,
       tiers: {
         T1: [
           20, 24, 31, 49, 66, 88, 106, 113, 116, 160, 174, 184, 189, 193, 218,
