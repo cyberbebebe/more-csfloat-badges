@@ -85,7 +85,7 @@ Specific guide pages used as sources for this extension (use Ctrl + LMB for link
 | Skin | Items | Source |
 | --------------------- | -------------------------------------- | ---------------------------------------------------------------------------------------- |
 | Marble Fade | Karambit, Bayonet, Flip, Gut, Talon | [korenevskiy's guide](https://steamcommunity.com/sharedfiles/filedetails/?id=3137170442) |
-| Doppler (Phases 1, 2, 3, 4) | All knives except Navaja (where available) | [korenevskiy's guide](https://steamcommunity.com/sharedfiles/filedetails/?id=3249241637) |
+| Doppler (Phases 1, 2, 3, 4) | All knives (where available) | [korenevskiy's guide](https://steamcommunity.com/sharedfiles/filedetails/?id=3249241637) |
 | Gamma Doppler (Phases 1, 2, 3) | All knives (where available) | [korenevskiy's guide](https://steamcommunity.com/sharedfiles/filedetails/?id=3284341165) |
 | Fade | Specialist Gloves | [korenevskiy's guide](https://steamcommunity.com/sharedfiles/filedetails/3304802458) |
 
