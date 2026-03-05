@@ -24,13 +24,15 @@ A browser extension for [CSFloat](https://csfloat.com) that expands the pattern-
      - From 4th Max down to Fake Fire & Ice (CSFloat has built-in badges for tiers 1-3)
      - From 1st Max down to 10th Fire & Ice for the Talon Knife (CSFloat does not have any built-in)
    - **Doppler Knives:**
-     - Phase 1: Max Blue & Pink Tips, Fake Black Pearls
+     - Phase 1: Max Blue or Pink Tips, Fake Black Pearls
      - Phase 2: Max Pink ("Pink Galaxy")
-     - Phase 3: Max Blue ("Fake Sapphire") and Fake Black Pearls
+     - Phase 3: Max Blue and Fake Black Pearls
      - Phase 4: Max Blue ("Fake Sapphire")
    - **Gamma Doppler Knives:**
+     - Phase 1: Max Diamond Gem and Diamond Tip
      - Phase 2: Max Green ("Fake Emerald")
-     - Phase 3: Max Cyan ("Fake Blue Gem")
+     - Phase 3: Max Cyan and Cyan Tip
+     - _Phase 4 is under construction_
    - **Fade Gloves:**
      - Ranks 1st-3rd, higher than Tier 1
      - Tiers 1st-3rd and Better than average
@@ -84,7 +86,7 @@ Specific guide pages used as sources for this extension (use Ctrl + LMB for link
 | --------------------- | -------------------------------------- | ---------------------------------------------------------------------------------------- |
 | Marble Fade | Karambit, Bayonet, Flip, Gut, Talon | [korenevskiy's guide](https://steamcommunity.com/sharedfiles/filedetails/?id=3137170442) |
 | Doppler (Phases 1, 2, 3, 4) | All knives except Navaja (where available) | [korenevskiy's guide](https://steamcommunity.com/sharedfiles/filedetails/?id=3249241637) |
-| Gamma Doppler (Phases 2, 3) | All knives (where available) | [korenevskiy's guide](https://steamcommunity.com/sharedfiles/filedetails/?id=3284341165) |
+| Gamma Doppler (Phases 1, 2, 3) | All knives (where available) | [korenevskiy's guide](https://steamcommunity.com/sharedfiles/filedetails/?id=3284341165) |
 | Fade | Specialist Gloves | [korenevskiy's guide](https://steamcommunity.com/sharedfiles/filedetails/3304802458) |
 
 ## Excluded Patterns (Fully or partially covered by BetterFloat)
@@ -93,11 +95,11 @@ To ensure perfect compatibility and avoid duplicate badges, the following patter
 | Skin | Patterns |
 | --- | --- |
 | Doppler | Max Ruby / Max Sapphire |
-| Gamma Doppler | Phase 1 Diamond / Emerald |
+| Gamma Doppler | Max Emerald |
 | Nocts | Max Black tiers |
 | Overprint | Arrow / Flower / Mixed / Polygon patterns |
 | Crimson web, Emerald web | Single / Double / Triple web tiers |
-| Crimson Kimono | Max Red tiers |
+| Crimson Kimono | Max Red / Max Gray tiers |
 
 > This list is subject to change as I'm discovering which items BetterFloat covers.
 

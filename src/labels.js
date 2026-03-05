@@ -24,11 +24,35 @@ const FADE_GLOVES_LABELS = {
   ORG: "Orange Pattern",
 };
 
+const GAMMA_DOPPLER_P1_LABELS = {
+  R1: "Rank 1 Diamond Gem\n(Highest Tier)",
+  T1: "Tier 1 Diamond Gem",
+  T2: "Tier 2 Diamond Gem",
+  T3: "Tier 3 Diamond Gem",
+  T4: "Tier 4 Diamond Gem",
+  BTA: "Better Than Average Diamond",
+  T1_Tip: "Tier 1 Max Diamond Tip",
+  T2_Tip: "Tier 2 Max Diamond Tip",
+  T3_Tip: "Tier 3 Max Diamond Tip",
+  T4_Tip: "Tier 4 Max Diamond Tip",
+  BTA_Tip: "Better Than Average Diamond Tip",
+  T1_Green: "Tier 1 Diamond Gem\n(Green Pattern)",
+  T2_Green: "Tier 2 Diamond Gem\n(Green Pattern)",
+  T3_Green: "Tier 3 Diamond Gem\n(Green Pattern)",
+  T4_Green: "Tier 4 Diamond Gem\n(Green Pattern)",
+  BTA_Green: "Better Than Average Diamond\n(Green Pattern)",
+  T1_Purple: "Tier 1 Diamond Gem\n(Purple Pattern)",
+  T2_Purple: "Tier 2 Diamond Gem\n(Purple Pattern)",
+  T3_Purple: "Tier 3 Diamond Gem\n(Purple Pattern)",
+  T4_Purple: "Tier 4 Diamond Gem\n(Purple Pattern)",
+  BTA_Purple: "Better Than Average Diamond\n(Purple Pattern)",
+};
+
 const GAMMA_DOPPLER_P2_LABELS = {
-  T1: "Tier 1 Max Green",
-  T2: "Tier 2 Max Green",
-  T3: "Tier 3 Max Green",
-  T4: "Tier 4 Max Green",
+  T1: "Tier 1 Max Green\n(Fake Emerald)",
+  T2: "Tier 2 Max Green\n(Fake Emerald)",
+  T3: "Tier 3 Max Green\n(Fake Emerald)",
+  T4: "Tier 4 Max Green\n(Fake Emerald)",
   BTA: "Better Than Average Green",
 };
 
@@ -84,10 +108,10 @@ const DOPPLER_P1_BLUEPINK_LABELS = {
 };
 
 DOPPLER_P2_LABELS = {
-  T1: "Tier 1 Max Pink",
-  T2: "Tier 2 Max Pink",
-  T3: "Tier 3 Max Pink",
-  T4: "Tier 4 Max Pink",
+  T1: "Tier 1 Max Pink\n(Pink Galaxy)",
+  T2: "Tier 2 Max Pink\n(Pink Galaxy)",
+  T3: "Tier 3 Max Pink\n(Pink Galaxy)",
+  T4: "Tier 4 Max Pink\n(Pink Galaxy)",
   BTA: "Better Than Average Pink",
 };
 
@@ -107,11 +131,12 @@ const DOPPLER_P3_LABELS = {
 };
 
 const DOPPLER_P4_LABELS = {
-  T1: "Tier 1 Max Blue",
-  T2: "Tier 2 Max Blue",
-  T3: "Tier 3 Max Blue",
-  T4: "Tier 4 Max Blue",
+  T1: "Tier 1 Max Blue\n(Fake Sapphire)",
+  T2: "Tier 2 Max Blue\n(Fake Sapphire)",
+  T3: "Tier 3 Max Blue\n(Fake Sapphire)",
+  T4: "Tier 4 Max Blue\n(Fake Sapphire)",
   BTA: "Better Than Average Blue",
+  Fake: "Fake Max Blue",
 
   T1_Tip: "Tier 1 Max Blue Tip",
   T2_Tip: "Tier 2 Max Blue Tip",

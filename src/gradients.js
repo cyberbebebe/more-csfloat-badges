@@ -35,6 +35,97 @@ const fade_gloves = {
   },
 };
 
+const gamma_doppler_P1_gem =
+  "linear-gradient(to top right, #006622 0%, #00a859 10%, #0088ff 40%, #00bfff 75%, #00d4ff 100%)";
+
+const gamma_doppler_P1_green =
+  "linear-gradient(to top right, #1b7a27 0%, #32bd32 15%, #0088ff 40%, #00bfff 80%, #00d4ff 100%)";
+
+const gamma_doppler_P1_purple =
+  "linear-gradient(to top right, #5415a3 0%, #863bf5 15%, #0088ff 50%, #00bfff 85%, #00d4ff 100%)";
+const gamma_doppler_P1 = {
+  R1: {
+    gradient: gamma_doppler_P1_gem,
+    position: "100%",
+  },
+  T1: {
+    gradient: gamma_doppler_P1_gem,
+    position: "100%",
+  },
+  T2: {
+    gradient: gamma_doppler_P1_gem,
+    position: "80%",
+  },
+  T3: {
+    gradient: gamma_doppler_P1_gem,
+    position: "60%",
+  },
+  T4: {
+    gradient: gamma_doppler_P1_gem,
+    position: "40%",
+  },
+  T1_Tip: {
+    gradient: gamma_doppler_P1_gem,
+    position: "100%",
+  },
+  T2_Tip: {
+    gradient: gamma_doppler_P1_gem,
+    position: "80%",
+  },
+  T3_Tip: {
+    gradient: gamma_doppler_P1_gem,
+    position: "60%",
+  },
+  T4_Tip: {
+    gradient: gamma_doppler_P1_gem,
+    position: "40%",
+  },
+  BTA_Tip: {
+    gradient: gamma_doppler_P1_gem,
+    position: "25%",
+  },
+  T1_Green: {
+    gradient: gamma_doppler_P1_green,
+    position: "100%",
+  },
+  T2_Green: {
+    gradient: gamma_doppler_P1_green,
+    position: "80%",
+  },
+  T3_Green: {
+    gradient: gamma_doppler_P1_green,
+    position: "60%",
+  },
+  T4_Green: {
+    gradient: gamma_doppler_P1_green,
+    position: "40%",
+  },
+  BTA_Green: {
+    gradient: gamma_doppler_P1_green,
+    position: "20%",
+  },
+  T1_Purple: {
+    gradient: gamma_doppler_P1_purple,
+    position: "100%",
+  },
+  T2_Purple: {
+    gradient: gamma_doppler_P1_purple,
+    position: "80%",
+  },
+  T3_Purple: {
+    gradient: gamma_doppler_P1_purple,
+    position: "60%",
+  },
+  T4_Purple: {
+    gradient: gamma_doppler_P1_purple,
+    position: "40%",
+  },
+  BTA_Purple: {
+    gradient: gamma_doppler_P1_purple,
+    position: "20%",
+  },
+};
+
 const gamma_doppler_P2_green =
   "linear-gradient(to right, #c8f5c8, #6dbf6d, #2e8b2e, #1a5c1a)";
 const gamma_doppler_P2 = {
@@ -272,6 +363,10 @@ const doppler_P4 = {
   BTA: {
     gradient: doppler_P4_blue,
     position: "20%",
+  },
+  Fake: {
+    gradient: doppler_P4_blue,
+    position: "50%",
   },
   T1_Tip: {
     gradient: doppler_P4_blue,
