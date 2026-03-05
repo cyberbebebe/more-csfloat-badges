@@ -43,7 +43,7 @@ A browser extension for [CSFloat](https://csfloat.com) that expands the pattern-
 
 3. **BetterFloat Synergy:** Fully compatible with the [BetterFloat extension](https://github.com/GODrums/BetterFloat). Works exceptionally well with their "Show In-Game Pictures" feature, allowing you to **instantly compare the visual differences** between pattern tiers directly on the item cards.
 
-> **Note:** This extension detects BetterFloat's custom badges on item listings and prefers to show **them** instead of its own. However, extension's custom badges will still appear in the Latest Sales table as BetterFloat does not add them here.
+> **Note:** This extension detects BetterFloat's custom badges on item listings and prefers to show **them** instead of its own. However, extension's custom badges will still appear in the Latest Sales table.
 
 ## 🔍 Preview
 
