@@ -187,6 +187,97 @@ const gamma_mixed_gradients = {
   T4_Green: gamma_doppler_P2.T4,
 };
 
+const gamma_doppler_P4_cyan =
+  "linear-gradient(to top right, #0a2e25 0%, #107563 15%, #00b3a4 40%, #00e5d8 75%, #00ffea 100%)";
+const gamma_doppler_P4_lime =
+  "linear-gradient(to top right, #0d2e26 0%, #157365 15%, #32c229 40%, #50cc00 75%, #80cc00 100%)";
+const gamma_doppler_P4 = {
+  T1_Cyan: {
+    gradient: gamma_doppler_P4_cyan,
+    position: "100%",
+  },
+  T2_Cyan: {
+    gradient: gamma_doppler_P4_cyan,
+    position: "80%",
+  },
+  T3_Cyan: {
+    gradient: gamma_doppler_P4_cyan,
+    position: "60%",
+  },
+  T4_Cyan: {
+    gradient: gamma_doppler_P4_cyan,
+    position: "40%",
+  },
+  BTA_Cyan: {
+    gradient: gamma_doppler_P4_cyan,
+    position: "20%",
+  },
+  T1_Cyan_Tip: {
+    gradient: gamma_doppler_P4_cyan,
+    position: "100%",
+  },
+  T2_Cyan_Tip: {
+    gradient: gamma_doppler_P4_cyan,
+    position: "80%",
+  },
+  T3_Cyan_Tip: {
+    gradient: gamma_doppler_P4_cyan,
+    position: "60%",
+  },
+  T4_Cyan_Tip: {
+    gradient: gamma_doppler_P4_cyan,
+    position: "40%",
+  },
+  BTA_Cyan_Tip: {
+    gradient: gamma_doppler_P4_cyan,
+    position: "20%",
+  },
+  T1_Lime: {
+    gradient: gamma_doppler_P4_lime,
+    position: "100%",
+  },
+  T2_Lime: {
+    gradient: gamma_doppler_P4_lime,
+    position: "80%",
+  },
+  T3_Lime: {
+    gradient: gamma_doppler_P4_lime,
+    position: "60%",
+  },
+  T4_Lime: {
+    gradient: gamma_doppler_P4_lime,
+    position: "40%",
+  },
+  BTA_Lime: {
+    gradient: gamma_doppler_P4_lime,
+    position: "20%",
+  },
+  T1_Lime_Tip: {
+    gradient: gamma_doppler_P4_lime,
+    position: "100%",
+  },
+  T2_Lime_Tip: {
+    gradient: gamma_doppler_P4_lime,
+    position: "80%",
+  },
+  T3_Lime_Tip: {
+    gradient: gamma_doppler_P4_lime,
+    position: "60%",
+  },
+  T4_Lime_Tip: {
+    gradient: gamma_doppler_P4_lime,
+    position: "40%",
+  },
+  BTA_Lime_Tip: {
+    gradient: gamma_doppler_P4_lime,
+    position: "20%",
+  },
+  Fake_Lime_Tip: {
+    gradient: gamma_doppler_P4_lime,
+    position: "20%",
+  },
+};
+
 const doppler_P1_fbp =
   "linear-gradient(to top right, #db7eb4, #a37cd9, #758cf2, #5a6ee6)";
 const doppler_P1_fbp_gradients = {

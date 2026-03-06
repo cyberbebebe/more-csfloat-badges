@@ -83,6 +83,33 @@ const GAMMA_MIXED_LABELS = {
   T4_Green: GAMMA_DOPPLER_P2_LABELS.T4,
 };
 
+const GAMMA_DOPPLER_P4_LABELS = {
+  T1_Cyan: "Tier 1 Max Cyan",
+  T2_Cyan: "Tier 2 Max Cyan",
+  T3_Cyan: "Tier 3 Max Cyan",
+  T4_Cyan: "Tier 4 Max Cyan",
+  BTA_Cyan: "Better Than Average Cyan",
+
+  T1_Cyan_Tip: "Tier 1 Max Cyan Tip",
+  T2_Cyan_Tip: "Tier 2 Max Cyan Tip",
+  T3_Cyan_Tip: "Tier 3 Max Cyan Tip",
+  T4_Cyan_Tip: "Tier 4 Max Cyan Tip",
+  BTA_Cyan_Tip: "Better Than Average Cyan Tip",
+
+  T1_Lime: "Tier 1 Max Lime",
+  T2_Lime: "Tier 2 Max Lime",
+  T3_Lime: "Tier 3 Max Lime",
+  T4_Lime: "Tier 4 Max Lime",
+  BTA_Lime: "Better Than Average Lime",
+
+  T1_Lime_Tip: "Tier 1 Max Lime Tip",
+  T2_Lime_Tip: "Tier 2 Max Lime Tip",
+  T3_Lime_Tip: "Tier 3 Max Lime Tip",
+  T4_Lime_Tip: "Tier 4 Max Lime Tip",
+  BTA_Lime_Tip: "Better Than Average Lime Tip",
+  Fake_Lime_Tip: "Fake Lime Tip",
+};
+
 const DOPPLER_P1_FBP_LABELS = {
   T1: "Tier 1 Fake Black Pearl",
   T2: "Tier 2 Fake Black Pearl",
