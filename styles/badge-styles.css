@@ -1,4 +1,5 @@
 /* improved sales history by https://github.com/Allyans3 */
+
 .grid-history {
   contain: none !important;
 }
@@ -24,10 +25,11 @@
     opacity: 1;
   }
 }
+
 .mcb-badge {
   --badge-hover-scale: 1.5;
   cursor: pointer;
-  animation: mcb-appear 0.15s ease-in 0.15s both;
+  animation: mcb-appear 0.1s ease-in-out;
 }
 
 .mcb-badge.mcb-detail {
@@ -67,9 +69,11 @@
   backdrop-filter: blur(10px);
   transition: opacity 0.2s ease-in-out;
   position: fixed;
-  z-index: 999999;
+  z-index: 9999 !important;
   white-space: pre-line;
   text-align: center;
+  inset: unset;
+  margin: 0;
 }
 
 /* Delete badge if BetterFloat added their */

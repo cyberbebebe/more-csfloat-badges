@@ -13,7 +13,9 @@ function createImgBadge(phase, tier, isDetail = false) {
     tooltip = document.createElement("div");
     tooltip.className = "mcb-label";
     tooltip.textContent = phase.labels[tier];
+    tooltip.setAttribute("popover", "manual");
     document.body.appendChild(tooltip);
+    tooltip.showPopover();
 
     const rect = img.getBoundingClientRect();
 
@@ -34,6 +36,7 @@ function createImgBadge(phase, tier, isDetail = false) {
 
   wrap.addEventListener("mouseleave", () => {
     if (tooltip) {
+      tooltip.hidePopover();
       tooltip.remove();
       tooltip = null;
     }
@@ -99,7 +102,9 @@ function createFadeBadge(phase, tier, isDetail = false) {
     tooltip = document.createElement("div");
     tooltip.className = "mcb-label";
     tooltip.textContent = phase.labels[tier];
+    tooltip.setAttribute("popover", "manual");
     document.body.appendChild(tooltip);
+    tooltip.showPopover();
 
     const rect = badge.getBoundingClientRect();
 
@@ -121,7 +126,10 @@ function createFadeBadge(phase, tier, isDetail = false) {
       tooltip.style.opacity = "0";
       const currentTooltip = tooltip;
       tooltip = null;
-      setTimeout(() => currentTooltip.remove(), 200);
+      setTimeout(() => {
+        currentTooltip.hidePopover();
+        currentTooltip.remove();
+      }, 200);
     }
   });
 
