@@ -49,11 +49,17 @@ const GAMMA_DOPPLER_P1_LABELS = {
 };
 
 const GAMMA_DOPPLER_P2_LABELS = {
+  R1: "High Tier Max Green\n(Fake Emerald)",
   T1: "Tier 1 Max Green\n(Fake Emerald)",
   T2: "Tier 2 Max Green\n(Fake Emerald)",
   T3: "Tier 3 Max Green\n(Fake Emerald)",
   T4: "Tier 4 Max Green\n(Fake Emerald)",
+  Fake: "Fake Max Green",
   BTA: "Better Than Average Green",
+  T1_Galaxy: "Tier 1 Green Galaxy",
+  T2_Galaxy: "Tier 2 Green Galaxy",
+  T3_Galaxy: "Tier 3 Green Galaxy",
+  T4_Galaxy: "Tier 4 Green Galaxy",
 };
 
 const GAMMA_DOPPLER_P3_LABELS = {
@@ -155,6 +161,7 @@ const DOPPLER_P3_LABELS = {
   T3_MaxFBP: "Tier 3 Max Fake Black Pearl",
   T4_MaxFBP: "Tier 4 Max Fake Black Pearl",
   BTA_MaxFBP: "Better Than Average Fake Black Pearl",
+  Fake_BP: "Fake Black Pearl",
 };
 
 const DOPPLER_P4_LABELS = {

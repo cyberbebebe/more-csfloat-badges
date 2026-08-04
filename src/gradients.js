@@ -50,11 +50,11 @@ const gamma_doppler_P1 = {
   },
   T1: {
     gradient: gamma_doppler_P1_gem,
-    position: "100%",
+    position: "90%",
   },
   T2: {
     gradient: gamma_doppler_P1_gem,
-    position: "80%",
+    position: "75%",
   },
   T3: {
     gradient: gamma_doppler_P1_gem,
@@ -63,6 +63,10 @@ const gamma_doppler_P1 = {
   T4: {
     gradient: gamma_doppler_P1_gem,
     position: "40%",
+  },
+  BTA: {
+    gradient: gamma_doppler_P1_gem,
+    position: "25%",
   },
   T1_Tip: {
     gradient: gamma_doppler_P1_gem,
@@ -129,6 +133,10 @@ const gamma_doppler_P1 = {
 const gamma_doppler_P2_green =
   "linear-gradient(to right, #c8f5c8, #6dbf6d, #2e8b2e, #1a5c1a)";
 const gamma_doppler_P2 = {
+  R1: {
+    gradient: gamma_doppler_P2_green,
+    position: "100%",
+  },
   T1: {
     gradient: gamma_doppler_P2_green,
     position: "100%",
@@ -145,9 +153,29 @@ const gamma_doppler_P2 = {
     gradient: gamma_doppler_P2_green,
     position: "40%",
   },
+  Fake: {
+    gradient: gamma_doppler_P2_green,
+    position: "30%",
+  },
   BTA: {
     gradient: gamma_doppler_P2_green,
     position: "20%",
+  },
+  T1_Galaxy: {
+    gradient: gamma_doppler_P2_green,
+    position: "90%",
+  },
+  T2_Galaxy: {
+    gradient: gamma_doppler_P2_green,
+    position: "75%",
+  },
+  T3_Galaxy: {
+    gradient: gamma_doppler_P2_green,
+    position: "50%",
+  },
+  T4_Galaxy: {
+    gradient: gamma_doppler_P2_green,
+    position: "30%",
   },
 };
 
@@ -429,6 +457,10 @@ const doppler_P3 = {
   BTA_MaxFBP: {
     gradient: doppler_P3_fbp,
     position: "20%",
+  },
+  Fake_BP: {
+    gradient: doppler_P3_fbp,
+    position: "90%",
   },
 };
 
