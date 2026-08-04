@@ -30,7 +30,7 @@ A browser extension for [CSFloat](https://csfloat.com) that expands the pattern-
      - Phase 4: Max Blue ("Fake Sapphire")
    - **Gamma Doppler Knives:**
      - Phase 1: Diamond Gem, Diamond Tip
-     - Phase 2: Max Green ("Fake Emerald")
+     - Phase 2: Max Green ("Fake Emerald"), Green Galaxy
      - Phase 3: Max Cyan, Cyan Tip
      - Phase 4: Max Cyan / Lime, Cyan / Lime Tip
    - **Fade Gloves:**
@@ -61,7 +61,7 @@ A browser extension for [CSFloat](https://csfloat.com) that expands the pattern-
   <tr>
     <td align="center" colspan="2">
       <img src="preview/preview_sales.png" alt="Sales history"><br/>
-      <b>Sales history</b>
+      <b>Latest Sales</b>
     </td>
   </tr>
 </table>
@@ -85,8 +85,8 @@ Specific guide pages used as sources for this extension (use Ctrl + LMB for link
 | Skin | Items | Source |
 | --------------------- | -------------------------------------- | ---------------------------------------------------------------------------------------- |
 | Marble Fade | Karambit, Bayonet, Flip, Gut, Talon | [korenevskiy's guide](https://steamcommunity.com/sharedfiles/filedetails/?id=3137170442) |
-| Doppler (Phases 1, 2, 3, 4) | All knives (where available) | [korenevskiy's guide](https://steamcommunity.com/sharedfiles/filedetails/?id=3249241637) |
-| Gamma Doppler (Phases 1, 2, 3, 4) | All knives (where available) | [korenevskiy's guide](https://steamcommunity.com/sharedfiles/filedetails/?id=3284341165) |
+| Doppler (Phases 1, 2, 3, 4) | Most knives | [korenevskiy's guide](https://steamcommunity.com/sharedfiles/filedetails/?id=3249241637) |
+| Gamma Doppler (Phases 1, 2, 3, 4) | Most knives (where available) | [korenevskiy's guide](https://steamcommunity.com/sharedfiles/filedetails/?id=3284341165) |
 | Fade | Specialist Gloves | [korenevskiy's guide](https://steamcommunity.com/sharedfiles/filedetails/3304802458) |
 
 ## Excluded Patterns (Fully or partially covered by BetterFloat)
