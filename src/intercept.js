@@ -18,17 +18,22 @@
       if (
         url.includes("/listings?") ||
         url.includes("/users") ||
-        url.includes("/sales")
+        url.includes("/sales") ||
+        url.includes("/inventory")
       ) {
         try {
           const resp = JSON.parse(this.responseText);
 
-          if (url.includes("/listings?") || url.includes("/users")) {
+          if (
+            url.includes("/listings?") ||
+            url.includes("/users") ||
+            url.includes("/inventory")
+          ) {
             window.postMessage(
               {
                 source: "MoreCSFloatBadges",
                 type: "LISTINGS_DATA",
-                payload: resp.data,
+                payload: url.includes("/inventory") ? resp : resp.data,
                 isFirst: !url.includes("cursor="),
               },
               "*",

@@ -7,27 +7,27 @@ const fade_gloves = {
   },
   R2: {
     gradient: fade_gloves_purple,
-    position: "90%",
+    position: "95%",
   },
   R3: {
     gradient: fade_gloves_purple,
-    position: "80%",
+    position: "90%",
   },
   T1: {
     gradient: fade_gloves_purple,
-    position: "60%",
+    position: "80%",
   },
   T2: {
     gradient: fade_gloves_purple,
-    position: "45%",
+    position: "65%",
   },
   T3: {
     gradient: fade_gloves_purple,
-    position: "30%",
+    position: "45%",
   },
   BTA: {
     gradient: fade_gloves_purple,
-    position: "15%",
+    position: "20%",
   },
   ORG: {
     gradient: "linear-gradient(to right, #e8c87a, #f0a030, #e86820, #d04010)",

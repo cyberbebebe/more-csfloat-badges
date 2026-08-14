@@ -11,22 +11,20 @@
   <img src="icons/8th.png" height="64"/>
   <img src="icons/9th.png" height="64"/>
   <img src="icons/10th.png" height="64"/>
-  <img src="icons/MaxFake.png" height="64"/>
-  <img src="icons/Fake.png" height="64"/>
 </div>
 
 ## ✨ Features
 
-A browser extension for [CSFloat](https://csfloat.com) that expands the pattern-based badge system and upgrades the Latest Sales section for maximum convenience.
+A browser extension for [CSFloat](https://csfloat.com) that expands the pattern-based badge system and improves the Latest Sales section for much better convenience and experience.
 
-1. **Comprehensive Pattern Badges:** Injects expanded tier badges directly into item cards (see screenshots below). This fills the gap left by the native CSFloat badges and the BetterFloat extension:
+1. **Comprehensive Badges:** Injects expanded pattern-based badges everywhere: small listings cards, specific lot card, your items in "Sell items" tab and in Latest Sales rows (examples on screenshots below). This fills the gap left by the CSFloat itself and the BetterFloat extension:
    - **Marble Fade Knives:**
      - From 4th Max down to Fake Fire & Ice (CSFloat has built-in badges for tiers 1-3)
      - From 1st Max down to 10th Fire & Ice for the Talon Knife (CSFloat does not have any built-in)
    - **Doppler Knives:**
-     - Phase 1: Max Blue / Pink Tips, Fake Black Pearls
+     - Phase 1: Max Blue / Pink Tip, Fake Black Pearl
      - Phase 2: Max Pink ("Pink Galaxy")
-     - Phase 3: Max Blue, Fake Black Pearls
+     - Phase 3: Max Blue, Fake Black Pearl
      - Phase 4: Max Blue ("Fake Sapphire")
    - **Gamma Doppler Knives:**
      - Phase 1: Diamond Gem, Diamond Tip
@@ -34,16 +32,20 @@ A browser extension for [CSFloat](https://csfloat.com) that expands the pattern-
      - Phase 3: Max Cyan, Cyan Tip
      - Phase 4: Max Cyan / Lime, Cyan / Lime Tip
    - **Fade Gloves:**
-     - Ranks 1st-3rd, higher than Tier 1
+     - Ranks 1st-3rd (higher than Tier 1)
      - Tiers 1st-3rd and Better than average
      - Special Orange ("Mango") pattern
    - **Other items in future (other Doppler and Gamma- phases, possibly gloves).**
 
-2. **Enhanced Sales History Table:** Why does CSFloat have such a poor Latest Sales table? This extension makes it exactly as it should have been by making the sales table a scrollable part of the details card (permanent), automatically hiding the "Stickers" column for knives (see list below), and integrating pattern badges directly into the sales rows. This makes price-checking faster, more convenient and reliable.
+2. **Enhanced Latest Sales:**
+  - Big Scrollable Table (example scheenshot below)
+  - Badges, where applicable, are presented here in each row
+  - Hides stickers column for knives and gloves
+  - Adds a header to the rightmost column depending on the item: "Tier", "Fade" or "Blue"
 
-3. **BetterFloat Synergy:** Fully compatible with the [BetterFloat extension](https://github.com/GODrums/BetterFloat). Works exceptionally well with their "Show In-Game Pictures" feature, allowing you to **instantly compare the visual differences** between pattern tiers directly on the item cards.
+3. **BetterFloat Compatibility:** Fully compatible with the [BetterFloat extension](https://github.com/GODrums/BetterFloat). Works exceptionally well with their "Show In-Game Pictures" feature, allowing you to **instantly compare the visual differences** between pattern tiers directly on the item cards.
 
-> **Note:** This extension detects BetterFloat's custom badges on item listings and prefers to show **them** instead of its own. However, extension's custom badges will still appear in the Latest Sales table.
+**Note:** This extension detects BetterFloat's custom badges on item listings and prefers to show **them** instead of its own. However, extension's custom badges will still appear in the Latest Sales table.
 
 ## 🔍 Preview
 
@@ -101,6 +103,8 @@ To ensure perfect compatibility and avoid duplicate badges, the following patter
 | Crimson web, Emerald web | Single / Double / Triple web tiers |
 | Crimson Kimono | Max Red / Max Gray tiers |
 
-> This list is subject to change as I'm discovering which items BetterFloat covers.
+> Also there are a lot of other skins for which neither this or BetterFloat does not add badges.
+
+**Note:** This list is subject to change.
 
 #### Created for the CS2 community and is not intended for commercial use

@@ -1,28 +1,57 @@
 function processListings(data, isFirst) {
   if (isFirst) {
     listingsQueue.length = 0;
-    processedCount = 0;
   }
   listingsQueue.push(...data);
 
   setTimeout(() => tryProcess(), 50);
 }
 
+function findMatchingItem(cardText, queue) {
+  for (const obj of queue) {
+    const item = obj.item || obj;
+    if (!item) continue;
+
+    let isMatch = false;
+
+    if (item.float_value) {
+      const floatStr = item.float_value.toString().substring(0, 10);
+      isMatch = cardText.includes(floatStr);
+      if (isMatch && item.paint_seed !== undefined) {
+        isMatch = cardText.includes(item.paint_seed.toString());
+      }
+    } else if (item.paint_seed !== undefined) {
+      isMatch = cardText.includes(item.paint_seed.toString());
+    }
+
+    if (isMatch) return item;
+  }
+  return null;
+}
+
 function tryProcess() {
   const cards = document.querySelectorAll("item-card");
-  while (
-    processedCount < cards.length &&
-    processedCount < listingsQueue.length
-  ) {
-    const item = listingsQueue[processedCount]?.item;
+  
+  for (const card of cards) {
+    const text = card.textContent || "";
+    if (text.trim() === "") continue;
+
+    if (card.dataset.mcbMatchedFloat && text.includes(card.dataset.mcbMatchedFloat)) {
+      continue;
+    }
+
+    const item = findMatchingItem(text, listingsQueue);
+    if (!item) continue;
+
+    const floatStr = item.float_value ? item.float_value.toString().substring(0, 10) : item.paint_seed.toString();
+    card.dataset.mcbMatchedFloat = floatStr;
+
     const phase = getPhase(item);
     const tier = getTier(item);
 
     if (phase && tier) {
-      injectListingBadge(cards[processedCount], phase, tier);
+      injectListingBadge(card, phase, tier);
     }
-
-    processedCount++;
   }
 }
 
